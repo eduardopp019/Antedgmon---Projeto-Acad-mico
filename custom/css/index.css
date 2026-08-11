@@ -1,0 +1,1366 @@
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+    text-decoration: none;
+
+    list-style: none;
+
+
+}
+
+body {
+
+    font-family: 'Poppins', sans-serif;
+    background: #1f1f1f url('../../img/bodyclaro.png') center top / cover fixed no-repeat;
+    background-attachment: fixed;
+
+}
+
+html,
+body {
+
+    width: 100%;
+    overflow-x: hidden;
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+
+    font-family: 'Kanit', sans-serif;
+
+
+}
+
+
+
+
+
+
+
+.c-gradient-blue {
+
+    background-image: linear-gradient(180deg, rgb(72, 75, 255) 55%, rgba(28, 2, 122, 0.479));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+.c-gradient {
+
+    background-image: linear-gradient(45deg, rgb(255, 153, 0), rgb(255, 198, 93));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+.fixed-scroll .logo a {
+    background: linear-gradient(45deg, rgb(255, 153, 0), rgb(255, 198, 93));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.c-gradient-bg {
+
+    background: linear-gradient(45deg, #ff9800, #ffc75d);
+
+    color: white;
+
+}
+
+/* ================= HEADER ================= */
+
+#TOPO {
+
+    background: #212121;
+    border-bottom: 1px solid #2d2d2d;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1050;
+
+}
+
+#TOPO .navbar {
+
+    padding: 15px 0;
+
+}
+/* FONTNOVA */
+#namelogo {
+
+    font-family: 'Jim Nightshade', cursive;
+    font-size: 2.5rem;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease-in-out;
+
+}
+
+.navbar-brand {
+
+    font-size: 1.4rem;
+
+    font-weight: 700;
+
+}
+
+.navbar-toggler {
+
+    color: white;
+
+    font-size: 1.3rem;
+
+}
+
+.search-form {
+
+    width: 100%;
+
+    max-width: 700px;
+
+}
+
+.search-form .input-group {
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+}
+
+.search-form input {
+
+    background: #2d2d2d;
+
+    border: none;
+
+    color: white;
+
+    height: 48px;
+
+}
+
+.search-form input:focus {
+
+    background: #2d2d2d;
+
+    color: white;
+
+    box-shadow: none;
+
+}
+
+.search-form input::placeholder {
+
+    color: #9a9a9a;
+
+}
+
+.search-form button {
+
+    width: 55px;
+
+}
+
+.login-btn-wrapper .btn {
+
+    min-width: 130px;
+
+}
+
+.offcanvas {
+
+    background: #212121;
+
+}
+
+.offcanvas .nav-link {
+
+    color: white;
+
+    transition: .2s;
+
+}
+
+.offcanvas .nav-link:hover {
+
+    color: orange;
+
+    padding-left: 8px;
+
+}
+
+
+/* ================= CARROSSEL ================= */
+
+#carrosel {
+    background: transparent;
+    padding: 30px 15px;
+}
+
+#carouselExampleCaptions {
+    max-width: 1400px;
+    margin: auto;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .45);
+}
+
+.carousel-link {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+}
+
+/* ANIMACAO CARD */
+
+.carousel-item img {
+    transform: scale(1.06);
+    transition: transform 4s ease;
+}
+
+.carousel-item.active img {
+    transform: scale(1);
+}
+
+.carousel-caption {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all .45s ease .2s;
+}
+
+.carousel-item.active .carousel-caption {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* FIM */
+
+#carouselExampleCaptions .carousel-item::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, .88) 0%,
+        rgba(0, 0, 0, .58) 30%,
+        rgba(0, 0, 0, .16) 57%,
+        rgba(0, 0, 0, 0) 78%
+    );
+}
+
+.carousel-caption {
+    z-index: 2;
+    left: 7%;
+    right: auto;
+    bottom: 12%;
+    text-align: left;
+    width: 55%;
+}
+
+.carousel-caption h5 {
+    font-size: clamp(2rem, 5vw, 5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 10px;
+}
+
+.carousel-caption h6 {
+    font-size: clamp(.9rem, 2vw, 1.4rem);
+    margin-bottom: 18px;
+    opacity: .9;
+}
+
+.carousel-caption .d-flex {
+    gap: 15px;
+    align-items: center;
+}
+
+.carousel-caption p {
+    margin: 0;
+    padding: 8px 18px;
+    font-size: clamp(1rem, 2vw, 1.8rem);
+    font-weight: 700;
+}
+
+.promo {
+    background: #ff9800;
+    border-radius: 8px;
+}
+
+.carousel-indicators {
+    margin-bottom: 20px;
+}
+
+.carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ff9800;
+}
+
+.carousel-control-prev {
+    justify-content: flex-start;
+    left: -70px;
+}
+
+.carousel-control-next {
+    justify-content: flex-end;
+    right: -70px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 70px;
+}
+
+
+
+
+
+.price-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 18px 0;
+}
+
+.badge-desconto {
+    background: linear-gradient(45deg, rgb(255, 153, 0), rgb(255, 198, 93));
+    color: #fff;
+
+    padding: 8px 12px;
+
+    border-radius: 10px;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    min-width: 60px;
+    text-align: center;
+
+    box-shadow: 0 6px 15px rgba(184, 119, 0, 0.35);
+}
+
+.price-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.preco-antigo {
+    color: #cfcfcf;
+    text-decoration: line-through;
+    font-size: 13px;
+    opacity: .8;
+}
+
+.preco-atual {
+    color: #fff;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+
+
+
+
+
+.banner-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
+
+
+#carouselExampleCaptions {
+    position: relative;
+    overflow: visible;
+}
+
+#carouselExampleCaptions .carousel-inner {
+    overflow: visible;
+}
+
+#carouselExampleCaptions .carousel-item {
+    overflow: hidden;
+    border-radius: 20px;
+    /* opcional */
+}
+
+/* Seta esquerda */
+#carouselExampleCaptions .carousel-control-prev {
+    left: -70px;
+    width: 50px;
+    opacity: 1;
+}
+
+/* Seta direita */
+#carouselExampleCaptions .carousel-control-next {
+    right: -70px;
+    width: 50px;
+    opacity: 1;
+}
+
+/* Ícones */
+#carouselExampleCaptions .carousel-control-prev i,
+#carouselExampleCaptions .carousel-control-next i {
+    font-size: 46px;
+    color: #f6a41c;
+    transition: .3s;
+}
+
+#carouselExampleCaptions .carousel-control-prev:hover i,
+#carouselExampleCaptions .carousel-control-next:hover i {
+    transform: scale(1.1);
+}
+
+
+
+/* ============================ CATEGORIA ============================= */
+#categoria {
+    margin: 25px 0;
+}
+
+.categorias {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.categoria-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 10px 18px;
+
+    background: #303030;
+    border: 1px solid #444;
+
+    border-radius: 50px;
+
+    color: #fff;
+    text-decoration: none;
+
+    transition: .25s;
+}
+
+.categoria-item:hover {
+    background: linear-gradient(45deg, #ff9800, #ffc75d);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.categoria-item i {
+    font-size: 18px;
+}
+
+.categoria-item span {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* ============================ CARDS ============================= */
+
+
+.btn-favorito {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+
+    width: 42px;
+    height: 42px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(0, 0, 0, .55);
+    backdrop-filter: blur(8px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #fff;
+    cursor: pointer;
+
+    transition: .25s;
+    z-index: 10;
+}
+
+.btn-favorito:hover {
+    background: #e63946;
+    color: #fff;
+    transform: scale(1.08);
+}
+
+.btn-favorito i {
+    font-size: 18px;
+}
+
+.btn-favorito.ativo {
+    background: #e63946;
+    color: #fff;
+}
+
+
+
+.games {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    padding: 20px;
+}
+
+.card-img-top {
+
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+#cardsony {
+
+    padding: 25px;
+    margin-top: 20px;
+
+}
+
+.area h2 {
+
+    background: rgb(99, 99, 255);
+    padding: 5px;
+    color: white;
+    font-size: 40px;
+    border: 1px solid rgb(99, 99, 255);
+    border-radius: 10px;
+
+
+}
+
+.area i {
+
+    margin-left: 10px;
+    font-size: 20px;
+
+}
+
+.area p {
+
+    color: white;
+
+}
+
+
+#cardsony>.container .games .card {
+
+    background: linear-gradient(180deg, rgba(31, 31, 31, 0.514), rgb(1, 81, 146) 65%);
+    border-radius: 10px;
+
+}
+
+#cardxbox>.container .games .card {
+
+    background: linear-gradient(180deg, rgba(31, 31, 31, 0.514), rgb(1, 146, 8) 65%);
+    border-radius: 10px;
+
+}
+
+#cardnintendo>.container .games .card {
+
+    background: linear-gradient(180deg, rgba(31, 31, 31, 0.514), rgb(187, 0, 0) 65%);
+    border-radius: 10px;
+
+}
+
+.card {
+
+    background: linear-gradient(45deg, rgb(255, 153, 0), rgb(255, 198, 93));
+    color: white;
+    transition: 0.3s;
+}
+
+.card:hover {
+
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+}
+
+.card-games {
+
+    background: linear-gradient(45deg, rgb(255, 153, 0), rgb(255, 198, 93));
+    color: white;
+    transition: 0.3s;
+}
+
+.card-games:hover {
+
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+}
+
+.card img {
+
+    border-radius: 5px;
+
+}
+
+.card,
+.card-title,
+.card-text {
+
+    color: white;
+
+
+}
+
+.card-text {
+
+    border: 1px solid rgb(255, 255, 255);
+    color: white;
+    background: transparent;
+    padding: 4px;
+    border-radius: 13px;
+    font-size: 10px;
+    width: fit-content;
+    height: 25px;
+
+}
+
+.card-title {
+
+    font-size: 30px;
+    height: 90px;
+
+}
+
+.comprar {
+
+    display: flex;
+    align-items: center;
+}
+
+.comprar a {
+
+    background: linear-gradient(180deg, rgb(72, 75, 255) 65%, rgba(28, 2, 122, 0.479));
+    color: rgb(255, 255, 255);
+
+    padding: 6px 14px;
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    border: none;
+    box-shadow: none;
+
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    transition: all 0.2s ease;
+}
+
+.comprar a:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(180deg, #6b6cff, #4b4be0);
+}
+
+
+
+
+
+.buy i {
+
+    margin-right: 10px;
+
+
+}
+
+
+
+
+.card-text2 {
+
+    border: 1px solid rgb(255, 255, 255);
+    padding: 4px;
+    border-radius: 13px;
+    font-size: 13px;
+    width: fit-content;
+
+}
+
+#cardxbox {
+
+    margin-top: 20px;
+
+}
+
+.badge-desconto-card {
+    background: linear-gradient(45deg, #ff9800, #ffc75d);
+    color: #fff;
+
+    padding: 4px 8px;
+
+    border-radius: 8px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+.badge-desconto-card-sony {
+    background: linear-gradient(45deg, #6a6dfd, #a391f7);
+    color: #fff;
+
+    padding: 4px 8px;
+
+    border-radius: 8px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+.badge-desconto-card-xbox {
+    background: linear-gradient(45deg, #00b600, #9ce09c);
+    color: #fff;
+
+    padding: 4px 8px;
+
+    border-radius: 8px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+.badge-desconto-card-nintendo {
+    background: linear-gradient(45deg, #ff0000, #ff6b6b);
+    color: #fff;
+
+    padding: 4px 8px;
+
+    border-radius: 8px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+.preco-antigo-card {
+    display: block;
+
+    color: #d7d7d7;
+
+    text-decoration: line-through;
+
+    font-size: 11px;
+
+    line-height: 1;
+}
+
+.preco-card {
+    font-size: 30px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+}
+
+
+
+
+/* ================= CUPONS ================= */
+
+#cupom {
+    padding: 50px 0;
+}
+
+#carouselCupom {
+
+    max-width: 1300px;
+    margin: auto;
+
+    border-radius: 20px;
+    overflow: hidden;
+
+    box-shadow: 0 12px 35px rgba(0, 0, 0, .45);
+
+}
+
+#carouselCupom img {
+
+    width: 100%;
+    height: 300px;
+
+    object-fit: cover;
+
+    transition: .4s;
+
+}
+
+#carouselCupom .carousel-item:hover img {
+
+    transform: scale(1.02);
+
+}
+
+#carouselCupom .carousel-indicators {
+    margin-bottom: 10px;
+}
+
+#carouselCupom .carousel-indicators button {
+    width: 8px;
+    height: 8px;
+
+    margin: 0 4px;
+
+    border-radius: 50%;
+
+    background: #ff9800;
+    border: none;
+
+    opacity: .5;
+
+    transition: .25s;
+}
+
+#carouselCupom .carousel-indicators .active {
+    width: 22px;
+    border-radius: 20px;
+    opacity: 1;
+}
+
+#carouselCupom .carousel-control-prev,
+#carouselCupom .carousel-control-next {
+
+    width: 8%;
+    opacity: 1;
+
+}
+
+#carouselCupom .carousel-control-prev i,
+#carouselCupom .carousel-control-next i {
+
+    font-size: 38px;
+    color: white;
+
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, .6));
+
+    transition: .2s;
+
+}
+
+#carouselCupom .carousel-control-prev:hover i,
+#carouselCupom .carousel-control-next:hover i {
+
+    transform: scale(1.15);
+
+}
+
+
+/*================= RODAPÉ =================*/
+
+#rodape {
+    background: #1d1d1d;
+    color: #fff;
+    padding-top: 70px;
+}
+
+.fundo-rodape {
+    background: linear-gradient(135deg, #ff9800, #ffb43a);
+    border-radius: 24px;
+    padding: 50px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .35);
+}
+
+/* LOGO */
+
+.logo-rodape {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.logo-rodape i {
+    font-size: 2rem;
+}
+
+/* TÍTULOS */
+
+#rodape h5 {
+    font-size: 18px;
+    margin-bottom: 18px;
+    font-weight: 700;
+}
+
+/* LINKS */
+
+.lista-area {
+    padding: 0;
+    margin: 0;
+}
+
+.lista-area li {
+    margin-bottom: 12px;
+}
+
+.lista-area a {
+    color: #fff;
+    opacity: .85;
+    transition: .25s;
+    text-decoration: none;
+}
+
+.lista-area a:hover {
+    opacity: 1;
+    color: #212121;
+    padding-left: 8px;
+}
+
+/* REDES */
+
+.social-media {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 5px;
+    text-decoration: none;
+}
+.social-media a {
+    text-decoration: none;
+    color: #fff;
+    transition: .25s;
+}
+
+.social-link {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .15);
+
+    color: #fff;
+    font-size: 20px;
+
+    transition: .25s;
+}
+
+.social-link:hover {
+    background: #fff;
+    color: #ff9800;
+    transform: translateY(-5px);
+}
+
+/* BOTÕES */
+
+.rodape-info-idioma {
+    margin-top: 30px;
+}
+
+.btn-light-custom {
+    background: rgba(255, 255, 255, .18);
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    transition: .25s;
+}
+
+.btn-light-custom:hover {
+    background: #fff;
+    color: #ff9800;
+}
+
+/* COPYRIGHT */
+
+#copy {
+    padding: 25px 0;
+}
+
+#copy p {
+    margin: 0;
+    opacity: .7;
+}
+
+#copy .logo-rodape {
+    font-size: 1rem;
+}
+
+#copy hr {
+    border-color: #444;
+}
+
+
+/* ================= RESPONSIVIDADE ================= */
+
+@media (max-width:992px) {
+
+    /* TOPO */
+
+    .login-btn-wrapper {
+
+        display: none;
+
+    }
+
+    /* CARROSSEL */
+
+    .carousel-item img {
+        height: 480px;
+    }
+
+    .carousel-caption {
+        width: 75%;
+        left: 6%;
+        bottom: 10%;
+    }
+
+    .carousel-control-prev i,
+    .carousel-control-next i {
+        font-size: 35px;
+    }
+
+    /* CUPOM */
+
+    #carouselCupom img {
+
+        height: 190px;
+
+    }
+
+    /* RODAPE */
+    .social-media {
+        justify-content: flex-start;
+        margin-top: 10px;
+    }
+
+}
+
+@media (max-width:768px) {
+
+    /* TOPO */
+
+    .navbar-brand {
+
+        font-size: 1.1rem;
+
+    }
+
+    .navbar-brand span {
+
+        display: none;
+
+    }
+
+    .search-form {
+
+        margin-top: 10px;
+
+    }
+
+    /* CARROSSEL */
+
+    .carousel-item img {
+        width: 100%;
+        aspect-ratio: 16/9;
+        height: auto;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    #carrosel {
+        padding: 15px 0;
+    }
+
+    #carouselExampleCaptions {
+        border-radius: 0;
+    }
+
+    .carousel-item img {
+        height: 300px;
+    }
+
+    .carousel-item::before {
+        background: linear-gradient(180deg,
+                rgba(0, 0, 0, .05),
+                rgba(0, 0, 0, .75));
+    }
+
+    .carousel-caption {
+        width: 90%;
+        left: 5%;
+        right: 5%;
+        bottom: 20px;
+    }
+
+    .carousel-caption h5 {
+        font-size: 1.5rem;
+        margin-bottom: 5px;
+    }
+
+    .carousel-caption h6 {
+        font-size: .8rem;
+        margin-bottom: 10px;
+    }
+
+    .carousel-caption .d-flex {
+        gap: 8px;
+    }
+
+    .carousel-caption p {
+        font-size: .95rem;
+        padding: 5px 10px;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 12%;
+        opacity: 1;
+    }
+
+    .carousel-control-prev i,
+    .carousel-control-next i {
+        font-size: 28px;
+        color: #fff;
+        filter: drop-shadow(0 0 8px rgba(0, 0, 0, .7));
+        transition: .2s;
+    }
+
+    .carousel-control-prev:hover i,
+    .carousel-control-next:hover i {
+        transform: scale(1.15);
+    }
+
+    /* CARROSSEL - SETAS NO MOBILE */
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 14%;
+    }
+
+    .carousel-control-prev {
+        justify-content: flex-start;
+        padding-left: 10px;
+    }
+
+    .carousel-control-next {
+        justify-content: flex-end;
+        padding-right: 10px;
+    }
+
+    .carousel-control-prev i,
+    .carousel-control-next i {
+        font-size: 26px;
+    }
+
+    /* CARDS */
+
+    .categorias {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+
+        padding-bottom: 8px;
+
+        scrollbar-width: none;
+    }
+
+    .categorias::-webkit-scrollbar {
+        display: none;
+    }
+
+    .categoria-item {
+        flex: 0 0 auto;
+        padding: 8px 14px;
+    }
+
+    .categoria-item span {
+        font-size: 13px;
+    }
+
+    /* CUPOM */
+
+    #cupom {
+
+        padding: 30px 0;
+
+    }
+
+    #carouselCupom {
+
+        border-radius: 15px;
+
+    }
+
+    #carouselCupom img {
+
+        height: auto;
+        aspect-ratio: 16/5;
+        object-fit: cover;
+
+    }
+
+    #carouselCupom .carousel-control-prev,
+    #carouselCupom .carousel-control-next {
+
+        width: 12%;
+
+    }
+
+    #carouselCupom .carousel-control-prev i,
+    #carouselCupom .carousel-control-next i {
+
+        font-size: 26px;
+
+    }
+
+    /* RODAPE */
+
+    #rodape {
+        padding-top: 50px;
+    }
+
+    .fundo-rodape {
+        padding: 30px 25px;
+        border-radius: 18px;
+    }
+
+    .logo-rodape {
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .rodape-info-idioma {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    #rodape h5 {
+        margin-top: 15px;
+    }
+
+    .lista-area {
+        text-align: center;
+    }
+
+    .social-media {
+        justify-content: center;
+        margin-top: 15px;
+    }
+
+    #copy {
+        text-align: center;
+    }
+
+    #copy .logo-rodape {
+        justify-content: center;
+        margin-bottom: 12px;
+    }
+
+    #copy p {
+        text-align: center;
+    }
+
+
+}
+
+
+@media (max-width:425px) {
+
+    /* CARROSSEL */
+
+    .carousel-item img {
+        height: 240px;
+    }
+
+    .carousel-caption {
+        width: 92%;
+        left: 4%;
+        bottom: 10px;
+    }
+
+    .carousel-caption h5 {
+        font-size: 1.15rem;
+        margin-bottom: 4px;
+    }
+
+    .carousel-caption h6 {
+        display: none;
+    }
+
+    .carousel-caption p {
+        font-size: .85rem;
+        padding: 4px 8px;
+    }
+
+    .carousel-control-prev i,
+    .carousel-control-next i {
+        font-size: 22px;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 15%;
+    }
+
+
+    /* CUPOM */
+
+
+    #cupom {
+        display: none;
+    }
+
+    .fundo-rodape {
+        padding: 25px 18px;
+    }
+
+    /* RODAPE */
+
+    .social-link {
+        width: 42px;
+        height: 42px;
+        font-size: 18px;
+    }
+
+    .btn-light-custom {
+        width: 100%;
+    }
+
+    .rodape-info-idioma {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

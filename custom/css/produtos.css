@@ -1,0 +1,1182 @@
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+    text-decoration: none;
+
+    list-style: none;
+
+
+}
+
+
+
+body {
+    background:
+        linear-gradient(to top,
+            rgba(255, 120, 0, 0.5),
+            rgba(0, 0, 0, 0.98) 60%),
+        url('../img/Jogos/gta-bg.jpg');
+}
+
+
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+
+    font-family: 'Kanit', sans-serif;
+
+
+}
+
+
+
+.c-gradient {
+
+    background-image: linear-gradient(45deg, rgb(255, 153, 0), rgb(255, 198, 93));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+.c-gradient-bg {
+
+    background: linear-gradient(45deg, #ff9800, #ffc75d);
+
+    color: white;
+
+}
+
+.c-gradient-bg:hover {
+    filter: brightness(1.1);
+    transform: scale(1.05);
+}
+
+
+
+/* ================= HEADER ================= */
+
+/* receba */
+#TOPO .container{
+    position: relative;
+}
+
+#TOPO .w-100.mt-3{
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform: translateX(-50%);
+    width: 100%;
+    margin-top: 0 !important;
+    display: flex;
+    justify-content: center;
+}
+
+#TOPO .search-form{
+    width: 700px;
+    max-width: 700px;
+}
+
+#TOPO .navbar{
+    min-height: 120px;
+}
+
+
+
+
+/* ================= SCROLL ================= */
+
+#TOPO.scrolled{
+    background: rgba(33, 33, 33, 0.55);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255,255,255,.1);
+}
+
+/* Header menor */
+#TOPO.scrolled .navbar{
+    padding: 8px 0;
+    min-height: 80px;
+}
+
+/* Logo menor */
+#TOPO.scrolled #namelogo{
+    font-size: 2rem;
+}
+
+/* Mantém o container relativo */
+#TOPO.scrolled .container{
+    position: relative;
+}
+
+/* Busca SEMPRE no centro */
+#TOPO.scrolled .w-100.mt-3{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0 !important;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Tamanho da busca */
+#TOPO.scrolled .search-form{
+    width: 600px;
+    max-width: 600px;
+    margin: 0;
+}
+
+/* Login continua à direita */
+#TOPO.scrolled .login-btn-wrapper{
+    display: block !important;
+}
+
+/* FONTNOVA */
+
+#namelogo {
+
+    font-family: 'Jim Nightshade', cursive;
+    font-size: 2.5rem;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease-in-out;
+
+}
+
+.navbar-brand {
+
+    font-size: 1.4rem;
+
+    font-weight: 700;
+
+}
+
+.navbar-toggler {
+
+    color: white;
+
+    font-size: 1.3rem;
+
+}
+
+.search-form {
+
+    width: 100%;
+
+    max-width: 700px;
+
+}
+
+.search-form .input-group {
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+}
+
+.search-form input {
+
+    background: #2d2d2d;
+
+    border: none;
+
+    color: white;
+
+    height: 48px;
+
+}
+
+.search-form input:focus {
+
+    background: #2d2d2d;
+
+    color: white;
+
+    box-shadow: none;
+
+}
+
+.search-form input::placeholder {
+
+    color: #9a9a9a;
+
+}
+
+.search-form button {
+
+    width: 55px;
+
+}
+
+.login-btn-wrapper .btn {
+
+    min-width: 130px;
+
+}
+
+.offcanvas {
+
+    background: #212121;
+
+}
+
+.offcanvas .nav-link {
+
+    color: white;
+
+    transition: .2s;
+
+}
+
+.offcanvas .nav-link:hover {
+
+    color: orange;
+
+    padding-left: 8px;
+
+}
+
+.menu-burger {
+    margin-right: 15px;
+}
+
+.menu-burger button {
+
+    border: none;
+
+}
+
+.offcanvas {
+
+    background: #212121;
+    color: #fff;
+
+}
+
+.offcanvas-header {
+
+    border-bottom: 1px solid #343434;
+
+}
+
+.offcanvas-body {
+
+    padding: 25px;
+
+}
+
+.offcanvas-body {
+
+    padding: 25px;
+
+}
+
+.offcanvas .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #fff;
+    padding: 10px 0;
+    transition: .25s;
+}
+
+.offcanvas .nav-link:hover {
+    color: #ff9800;
+    padding-left: 8px;
+}
+
+.offcanvas-divider{
+
+    margin:18px 0;
+    border-bottom:1px solid rgba(255,255,255,.12);
+
+}
+
+#icon-menuburger img {
+
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+
+}
+
+
+.butao {
+
+    border: 1px solid #ff9800;
+    border-radius: 10px;
+    color: #fff;
+    transition: .25s;
+
+}
+
+.butao:hover {
+
+    background: #ff9800;
+    color: #fff;
+
+}
+
+
+
+
+/* Barra superior */
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+/* Campo de busca padrão */
+.search-form {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Lupa do mobile */
+.btn-search-toggle {
+    background: none;
+    border: none;
+    color: #ffae00;
+    font-size: 22px;
+    cursor: pointer;
+    display: none;
+}
+
+
+/* CARROSEL IMAGENS */
+.name {
+    padding: 40px 20px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.game-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 50px;
+}
+
+.game-logo {
+    flex-shrink: 0;
+}
+
+.game-logo img {
+    width: 155px;
+    height: 80px;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+.game-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.game-title {
+    font-size: 30px;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin: 0;
+    font-family: 'Kanit', sans-serif;
+}
+
+.game-platform {
+    display: inline-block;
+    background: white;
+    color: #1a1a1a;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 9px;
+    text-transform: uppercase;
+}
+
+.card-text {
+
+    border: 1px solid transparent;
+    padding: 10px;
+    border-radius: 13px;
+    font-size: 15px;
+    height: 25px;
+    color: gray;
+    background: white;
+    display: flex;
+    align-items: center;
+
+}
+
+/* CARROSEL */
+#produtos.produtos-grid {
+    width: min(100%, 1200px);
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.carrosel-imagem {
+    flex: 1 1 600px;
+    min-width: 280px;
+}
+
+#Desc.desc-box {
+    flex: 0 0 320px;
+    min-width: 250px;
+}
+
+.desc-card>.btn-desejo i {
+
+    color: red;
+
+}
+
+#carrosel-games {
+    padding: 35px 20px 20px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+#carrossel-principal {
+    width: min(100%, 1100px);
+    margin: 0 auto 20px;
+}
+
+#carrossel-principal img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: -55px;
+}
+
+
+
+
+.carrosel-games-wrap {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: center;
+}
+
+.carrosel-main {
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    aspect-ratio: 16 / 9;
+    position: relative;
+}
+
+.carrosel-thumbs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 8px 2px;
+    scroll-snap-type: x mandatory;
+}
+
+#close-modal:hover {
+    background: #ccc;
+}
+
+.carrosel-thumbs {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 8px 2px;
+    scroll-snap-type: x mandatory;
+}
+
+.carrosel-thumbs .thumb {
+    flex: 0 0 auto;
+    width: 220px;
+    height: 120px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    scroll-snap-align: start;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.carrosel-thumbs .thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.25s ease, filter 0.25s ease;
+    cursor: pointer;
+}
+
+.carrosel-thumbs .thumb:hover img,
+.carrosel-thumbs .thumb.active img {
+    transform: scale(1.04);
+    filter: brightness(0.95);
+}
+
+.carrosel-thumbs .thumb {
+    flex: 0 0 auto;
+    width: 220px;
+    height: 120px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    scroll-snap-align: start;
+    border: 2px solid transparent;
+}
+
+.carrosel-thumbs .thumb.active {
+    border-color: transparent;
+}
+
+/* DESCRICAO DO PRODUTO */
+.desc-card {
+    background: linear-gradient(45deg, rgb(255, 153, 0), rgb(255, 198, 93));
+    color: white;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 12px 38px rgba(0, 0, 0, 0.46);
+    border: 1px solid rgba(255, 180, 75, 0.35);
+    max-width: 905px;
+    margin: 0 auto;
+}
+
+.desc-tag {
+    display: inline-block;
+    background: radial-gradient(circle at top left, #ff8b00, #ff5d00);
+    color: white;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+
+.desc-tag {
+    display: inline-block;
+    background: #ff4e4e;
+    color: white;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+
+.desc-prices {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.desc-original {
+    color: rgba(0, 0, 0, 0.6);
+    text-decoration: line-through;
+}
+
+.desc-sale {
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 900;
+}
+
+.desc-timer {
+    margin-top: 12px;
+    background: linear-gradient(180deg, rgb(255, 255, 255) 65%, rgb(143, 143, 143));
+    border-radius: 10px;
+    padding: 8px 10px;
+    font-weight: 700;
+    color: black;
+}
+
+.desc-note {
+    margin-top: 12px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.desc-store {
+    margin-top: 16px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.desc-store span {
+    display: block;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.desc-store small {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.desc-info {
+    margin-top: 13px;
+}
+
+.desc-info a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.desc-actions {
+    margin-top: 16px;
+    display: flex;
+    gap: 10px;
+}
+
+.btn-comprar,
+.btn-desejo {
+    flex: 1;
+    padding: 12px 14px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+
+.btn-comprar {
+    background: linear-gradient(135deg, #ff9800, #ffc75d);
+    border-color: rgba(255, 224, 169, .55);
+    color: #21170a;
+    box-shadow: 0 7px 16px rgba(0, 0, 0, .22);
+}
+
+.btn-desejo {
+    border-color: rgba(255, 190, 72, .72);
+    background: rgba(30, 30, 30, .86);
+    color: #fff;
+}
+
+.btn-comprar:hover,
+.btn-desejo:hover {
+    filter: brightness(1.08);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .3);
+}
+
+.btn-desejo i {
+    color: #ffab19;
+}
+
+.tags a {
+    text-decoration: none;
+}
+
+.tags div {
+    transition: transform .2s ease, filter .2s ease;
+}
+
+.tags div:hover {
+    filter: brightness(1.12);
+    transform: translateY(-2px);
+}
+
+/* Produtos */
+
+#produtos {
+
+    display: flex;
+
+}
+
+/* GAME DETAILS */
+
+.game-details {
+    background: linear-gradient(55deg, rgb(255, 153, 0)45%, rgb(255, 198, 93));
+    padding: 25px;
+    border-radius: 18px;
+    color: #fff;
+    width: 445px;
+}
+
+h3 {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.tags div {
+    display: inline-block;
+    background: #ff8000;
+    color: #ffffff;
+    padding: 5px 12px;
+    margin: 4px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.idiomas {
+
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+
+.idiomas li {
+    padding: 6px 0;
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ffffff;
+}
+
+.check {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.classificacao {
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.classificacao .icon {
+    background: #ff3b3b;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.classificacao-text {
+    font-size: 14px;
+}
+
+.valor {
+    color: #fcdec1;
+    font-weight: 500;
+}
+
+li strong {
+    font-weight: 700;
+}
+
+.game-details-2 {
+    background: linear-gradient(55deg, rgb(255, 153, 0)45%, rgb(255, 198, 93));
+    padding: 25px;
+    border-radius: 18px;
+    color: #fff;
+    width: 445px;
+
+}
+
+#area3 br {
+    padding: 6px 0;
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ffffff;
+}
+
+
+.extra {
+    display: none;
+}
+
+.verMaisBtn {
+    width: 90px;
+    height: 20px;
+    line-height: 20px;
+    padding: 0;
+    background: #ffae0022;
+    border: 2px solid #fff;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 12px;
+    text-align: center;
+    transition: 0.2s;
+}
+
+.verMaisBtn:hover {
+    background: #ff9900;
+}
+
+/* RODAPÉ GERAL */
+#rodape {
+    background-color: #212121;
+    color: white;
+}
+
+/* CARD LARANJA */
+.fundo-rodape {
+    background: linear-gradient(45deg, #ff9900, #ffc65d);
+    border-radius: 20px;
+    color: white;
+    min-height: 300px;
+}
+
+/* LINKS E LISTAS */
+.lista-area li {
+    margin-bottom: 8px;
+}
+
+.lista-area li a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: 0.3s;
+}
+
+.lista-area li a:hover {
+    color: #212121;
+    padding-left: 5px;
+}
+
+/* REDES SOCIAIS */
+.social-media {
+    display: flex;
+    gap: 15px;
+}
+
+.social-link {
+    font-size: 1.5rem;
+    color: white;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.social-link:hover {
+    transform: translateY(-5px) scale(1.2);
+    color: #212121;
+}
+
+/* BOTÕES DE IDIOMA */
+.btn-light-custom {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    backdrop-filter: blur(5px);
+}
+
+.btn-light-custom:hover {
+    background: white;
+    color: #ff9900;
+}
+
+/* LOGO */
+.logo-rodape {
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+
+
+
+
+
+/* RESPONSIVO */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Layout responsivo da página de produto */
+.game-main-image {
+    display: block;
+    width: 100%;
+    max-width: 905px;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.game-details-layout {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 445px));
+    justify-content: center;
+    align-items: stretch;
+    gap: 20px;
+    width: min(calc(100% - 40px), 910px);
+    margin: 20px auto 48px;
+}
+
+/* Impede que elementos flex internos encolham a página no celular. */
+#produtos > .d-flex,
+.carrosel-imagem,
+#Desc.desc-box {
+    width: 100%;
+    min-width: 0;
+}
+
+#produtos > .d-flex {
+    display: block !important;
+}
+
+.game-details {
+    width: 100%;
+    min-width: 0;
+    height: auto;
+}
+
+.game-details p,
+.game-details li {
+    font-size: 0.95rem;
+    line-height: 1.55;
+}
+
+.game-about-full {
+    grid-column: 1 / -1;
+}
+
+@media (max-width: 992px) {
+    #TOPO .search-form,
+    #TOPO.scrolled .search-form {
+        width: min(60vw, 520px);
+    }
+
+    #produtos.produtos-grid {
+        padding: 20px;
+    }
+
+    .carrosel-imagem {
+        width: 100%;
+        flex-basis: 100%;
+    }
+
+    #Desc.desc-box {
+        width: min(100%, 905px);
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        background-attachment: scroll;
+    }
+
+    .name {
+        padding: 28px 20px;
+    }
+
+    .game-header {
+        margin-top: 24px;
+        gap: 18px;
+    }
+
+    .game-title {
+        font-size: clamp(1.5rem, 5vw, 2.25rem);
+        letter-spacing: 1px;
+    }
+
+    #carrossel-principal img {
+        margin-bottom: 0;
+    }
+
+    #carrosel-games {
+        padding: 18px 0;
+        justify-content: flex-start;
+    }
+
+    .carrosel-thumbs .thumb {
+        width: 160px;
+        height: 90px;
+    }
+
+    .game-details-layout {
+        grid-template-columns: 1fr;
+        width: min(calc(100% - 32px), 620px);
+        margin-top: 8px;
+    }
+
+    .game-about-full {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 576px) {
+    html,
+    body {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    #TOPO .w-100.mt-3,
+    #TOPO.scrolled .w-100.mt-3 {
+        position: static;
+        transform: none;
+        margin-top: 12px !important;
+    }
+
+    #TOPO .search-form,
+    #TOPO.scrolled .search-form {
+        width: 100%;
+    }
+
+    .name {
+        padding: 20px 16px;
+    }
+
+    .game-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .game-logo img {
+        width: 140px;
+        height: 72px;
+        object-fit: cover;
+    }
+
+    .game-info {
+        align-items: center;
+        gap: 8px;
+    }
+
+    #produtos.produtos-grid {
+        width: 100%;
+        padding: 12px 16px;
+    }
+
+    #Desc.desc-box {
+        width: 100% !important;
+        max-width: none;
+    }
+
+    #rodape,
+    #rodape .container,
+    #rodape .fundo-rodape {
+        width: 100% !important;
+        max-width: none;
+    }
+
+    #rodape .container {
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+
+    #rodape .fundo-rodape {
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    .desc-card {
+        padding: 16px;
+    }
+
+    .desc-actions {
+        flex-direction: column;
+    }
+
+    .carrosel-thumbs .thumb {
+        width: 130px;
+        height: 78px;
+    }
+
+    .game-details {
+        padding: 20px;
+    }
+
+    .game-details p,
+    .game-details li {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+}
+
+/* Cabeçalho: evita a sobreposição da busca com logo e login em tablets. */
+@media (max-width: 1199px) {
+    #TOPO .navbar,
+    #TOPO.scrolled .navbar {
+        min-height: 0;
+        padding: 14px 0;
+    }
+
+    #TOPO .container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    #TOPO .container > .d-flex.w-100 {
+        order: 1;
+    }
+
+    #TOPO .w-100.mt-3,
+    #TOPO.scrolled .w-100.mt-3 {
+        position: static;
+        order: 2;
+        transform: none;
+        width: 100%;
+        margin-top: 12px !important;
+    }
+
+    #TOPO .search-form,
+    #TOPO.scrolled .search-form {
+        width: min(100%, 720px);
+        max-width: 720px;
+    }
+}
+
+@media (max-width: 991px) {
+    #TOPO .login-btn-wrapper {
+        display: none !important;
+    }
+
+    #TOPO .navbar-brand {
+        max-width: calc(100vw - 100px);
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 576px) {
+    #TOPO .container {
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+
+    #TOPO .w-100.mt-3,
+    #TOPO.scrolled .w-100.mt-3 {
+        margin-top: 10px !important;
+    }
+
+    #TOPO #namelogo {
+        font-size: 2rem;
+    }
+}

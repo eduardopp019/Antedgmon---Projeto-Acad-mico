@@ -1,0 +1,173 @@
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+    text-decoration: none;
+
+    list-style: none;
+
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+
+    font-family: 'Kanit', sans-serif;
+
+
+}
+
+body {
+    background-color: rgb(43, 43, 43);
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.card-login {
+    border: none;
+    border-radius: 20px;
+    background-color: rgba(26, 26, 26, 0.98);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+.c-gradient {
+
+    background-image: linear-gradient(45deg, rgb(255, 153, 0), rgb(255, 198, 93));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+.form-control {
+    background-color: #252525;
+    border: 1px solid #333;
+    color: #fff;
+    padding: 12px;
+}
+
+.form-control:focus {
+    background-color: #2a2a2a;
+    color: #fff;
+}
+
+.form-control::placeholder {
+    color: #aaaaaa42;
+}
+
+.input-group-text {
+    background-color: #333;
+    border: 1px solid #333;
+    color: #aaa;
+}
+
+.btn-login {
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 12px;
+    transition: all 0.3s ease;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    margin: 0 auto;
+    display: flex;
+}
+
+.cadastronovo,
+.notconta {
+    font-size: 13px;
+}
+
+.btn-login:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.2);
+    color: white;
+}
+
+.back-to-store {
+    text-decoration: none;
+    color: #aaa;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.back-to-store:hover {
+    color: #aaa;
+}
+
+.form-label,
+.form-check-label {
+
+    color: #aaa;
+
+}
+
+.senha {
+
+    color: #aaa;
+
+}
+
+
+/* cascata */
+.icon-cascade {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: -1;
+    overflow: hidden;
+    background-color: #0f0f0f;
+
+}
+
+/* icone caindo */
+.falling-icon {
+    position: absolute;
+    top: -50px;
+    color: rgba(203, 122, 17, 0.2);
+    /* Roxo bem suave/transparente */
+    font-size: 1.5rem;
+    user-select: none;
+    pointer-events: none;
+    animation: fall linear infinite;
+}
+
+.card-login {
+    position: relative;
+    z-index: 10;
+    backdrop-filter: blur(5px);
+    /* Efeito opcional de vidro embaçado */
+    background-color: rgba(26, 26, 26, 0.95);
+}
+
+/* Animacao caindo */
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+    }
+}
