@@ -401,7 +401,7 @@ if (!$produto) {
                     ?>
                         <a class="card-relacionado" href="produtos.php?id=<?php echo (int)$relacionado['id_produto']; ?>">
                             <div class="card-relacionado-imagem">
-                                <img src="img/jogos/<?php echo htmlspecialchars($relacionado['imagem'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($relacionado['nome'], ENT_QUOTES, 'UTF-8'); ?>">
+                                <img src="img/Jogos/<?php echo htmlspecialchars($relacionado['imagem'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($relacionado['nome'], ENT_QUOTES, 'UTF-8'); ?>">
                                 <?php if ($relacionado_em_promocao) { ?><span>-<?php echo (int)$relacionado['desconto']; ?>%</span><?php } ?>
                             </div>
                             <div class="card-relacionado-info">

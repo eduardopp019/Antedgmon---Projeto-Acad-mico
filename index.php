@@ -61,7 +61,7 @@ $produto = mysqli_fetch_assoc($result);
 
                             <div class="position">
 
-                                <img src="img/jogos/<?php echo $produto['imagem']; ?>" class="d-block w-100">
+                                <img src="img/Jogos/<?php echo $produto['imagem']; ?>" class="d-block w-100">
 
                             </div>
 
@@ -226,7 +226,7 @@ $produto = mysqli_fetch_assoc($result);
                     <div class="card h-100">
                         <div class="position-relative">
 
-                            <img src="img/jogos/<?php echo $produto['imagem']; ?>" class="card-img-top">
+                            <img src="img/Jogos/<?php echo $produto['imagem']; ?>" class="card-img-top">
 
                             <button class="btn-favorito" data-id="<?php echo $produto['id_produto']; ?>">
                                 <i class="fa-regular fa-heart"></i>
@@ -310,7 +310,7 @@ $produto = mysqli_fetch_assoc($result);
                         <div class="card h-100">
                             <div class="position-relative">
 
-                                <img src="img/jogos/<?php echo $produto['imagem']; ?>" class="card-img-top">
+                                <img src="img/Jogos/<?php echo $produto['imagem']; ?>" class="card-img-top">
 
                                 <button class="btn-favorito" data-id="<?php echo $produto['id_produto']; ?>">
                                     <i class="fa-regular fa-heart"></i>
@@ -400,7 +400,7 @@ $produto = mysqli_fetch_assoc($result);
 
                             <div class="position-relative">
 
-                                <img src="img/jogos/<?php echo $produto['imagem']; ?>" class="card-img-top">
+                                <img src="img/Jogos/<?php echo $produto['imagem']; ?>" class="card-img-top">
 
                                 <button class="btn-favorito" data-id="<?php echo $produto['id_produto']; ?>">
                                     <i class="fa-regular fa-heart"></i>
