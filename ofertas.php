@@ -65,7 +65,7 @@ $resultado = mysqli_query($conexao, $sql);
                         <div class="card h-100">
                             <a href="produtos.php?id=<?php echo (int) $produto['id_produto']; ?>" class="text-decoration-none text-white">
                                 <div class="position-relative">
-                                    <img src="img/jogos/<?php echo htmlspecialchars($produto['imagem'], ENT_QUOTES, 'UTF-8'); ?>" class="card-img-top" alt="<?php echo htmlspecialchars($produto['nome'], ENT_QUOTES, 'UTF-8'); ?>">
+                                    <img src="img/Jogos/<?php echo htmlspecialchars($produto['imagem'], ENT_QUOTES, 'UTF-8'); ?>" class="card-img-top" alt="<?php echo htmlspecialchars($produto['nome'], ENT_QUOTES, 'UTF-8'); ?>">
                                     <span class="badge bg-success position-absolute top-0 start-0 m-2">-<?php echo (int) $produto['desconto']; ?>%</span>
                                 </div>
                                 <div class="card-body d-flex flex-column">
