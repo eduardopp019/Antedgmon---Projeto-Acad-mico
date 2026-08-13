@@ -1,12 +1,12 @@
 <?php 
 
-    $servidor = "localhost";
+    $servidor = getenv('DB_HOST') ?: "localhost";
 
-    $usuario = "root";
+    $usuario = getenv('DB_USER') ?: "root";
 
-    $senha = "";
+    $senha = getenv('DB_PASSWORD') ?: "";
 
-    $banco = "antedgmon";
+    $banco = getenv('DB_NAME') ?: "antedgmon";
 
 
     // criar conexao

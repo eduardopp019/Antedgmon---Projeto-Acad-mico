@@ -1,5 +1,6 @@
 # Copias locais e arquivos temporarios
 backups/
+work/
 *.log
 *.tmp
 
