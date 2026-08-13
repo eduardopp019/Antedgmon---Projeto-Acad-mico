@@ -71,8 +71,8 @@ if (!isset($_SESSION)) {
                             </div>
                         </div>
 
-                        <button type="submit" class="entrar btn btn-login w-68 mb-3">
-                            <a href="#" class="c-gradient text-decoration-none">ENTRAR NA CONTA</a>
+                        <button type="submit" class="entrar btn btn-login w-68 mb-3 c-gradient">
+                            ENTRAR NA CONTA
                         </button>
                     </form>
                 </div>
