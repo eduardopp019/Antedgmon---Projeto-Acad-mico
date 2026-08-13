@@ -13,7 +13,8 @@ if (!isset($_SESSION)) {
 ##Verificando se existe usuario logafo para permitir acesso ao painel administrativo
 if (!isset($_SESSION['USER'])) {
   $_SESSION['naoAutorizado'] = "Você não tem acesso a essa pagina!";
-  header("Location: index.php");
+  header("Location: Index.php");
+  exit;
 }
 
 

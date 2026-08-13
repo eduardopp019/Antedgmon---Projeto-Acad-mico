@@ -30,12 +30,14 @@ if (isset($_POST['usuario']) && $_POST['usuario'] != '' && isset($_POST['senha']
         $_SESSION['NAME'] = $funcionarios['nome'];
 
         header("Location: Admin.php");
+        exit;
     } 
     else 
     {
         $_SESSION['loginERRO'] =  "Usuário ou senha inválidos";
 
-        header("Location: index.php");
+        header("Location: Index.php");
+        exit;
     }
 
 } 
@@ -43,5 +45,6 @@ else
 {
     $_SESSION['loginVazio'] =  "Informe um usuário e senha";
 
-    header("Location: index.php");
+    header("Location: Index.php");
+    exit;
 }

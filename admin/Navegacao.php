@@ -1,15 +1,9 @@
 <?php
-//retornar o caminho da url apos o nome do host
-$url_parcial = $_SERVER['REQUEST_URI'];
-
-//0=""
-//1="Info_52"
-//2="antedgmon"
-//3="admin"
-$caminhos = explode('/', $url_parcial);
-
-
-$url = "http://" . $_SERVER['HTTP_HOST'] . "/" . $caminhos[1] . "/" . $caminhos[2];
+// Caminho base funciona tanto no XAMPP (/info_52/antedgmon)
+// quanto no dominio publico, onde o projeto esta na raiz.
+$script_path = parse_url($_SERVER['SCRIPT_NAME'], PHP_URL_PATH);
+$admin_pos = stripos($script_path, '/admin/');
+$url = $admin_pos === false ? '' : rtrim(substr($script_path, 0, $admin_pos), '/');
 
 $caminho_atual = rtrim(strtolower(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)), '/');
 $pagina_atual = basename($caminho_atual);
@@ -27,7 +21,7 @@ $secao_atual = $pagina_atual === 'admin.php'
 
     <ul class="nav flex-column">
       <li class="nav-item">
-        <a class="nav-link<?= $secao_atual === 'inicio' ? ' active' : '' ?>" href="<?php echo $url ?>/admin/admin.php">
+        <a class="nav-link<?= $secao_atual === 'inicio' ? ' active' : '' ?>" href="<?php echo $url ?>/admin/Admin.php">
           <i class="bi bi-house-door-fill"></i>
           Início
         </a>

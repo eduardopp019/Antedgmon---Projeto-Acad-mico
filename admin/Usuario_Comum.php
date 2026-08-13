@@ -14,7 +14,8 @@ if (!isset($_SESSION)) {
 if (!isset($_SESSION['USER'])) 
 {
     $_SESSION['naoAutorizado'] = "Você não tem acesso a essa pagina!";
-    header("Location: ../index.php");
+    header("Location: ../Index.php");
+    exit;
 
 } 
 

@@ -54,7 +54,7 @@ if (!isset($_SESSION)) {
                 <div class="card-body">
                     <h2 class="text-center mb-4 c-gradient fs-1">Login</h2>
 
-                    <form action="login.php" method="POST">
+                    <form action="Login.php" method="POST">
                         <div class="mb-3">
                             <label class="form-label small">Usuário</label>
                             <div class="input-group">

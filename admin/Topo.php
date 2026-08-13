@@ -1,15 +1,8 @@
 <?php 
-//retornar o caminho da url apos o nome do host
-  $url_parcial = $_SERVER['REQUEST_URI'];
-
-  //0=""
-  //1="Info_52"
-  //2="antedgmon"
-  //3="admin"
-  $caminhos = explode('/', $url_parcial);
-
-
-  $url = "http://" . $_SERVER['HTTP_HOST'] . "/" .$caminhos[1] . "/" . $caminhos[2];
+  // Caminho base dinamico para ambiente local e hospedagem na raiz.
+  $script_path = parse_url($_SERVER['SCRIPT_NAME'], PHP_URL_PATH);
+  $admin_pos = stripos($script_path, '/admin/');
+  $url = $admin_pos === false ? '' : rtrim(substr($script_path, 0, $admin_pos), '/');
 ?>
 
 <link rel="stylesheet" href="<?php echo $url; ?>/custom/css/admin-dashboard.css">
