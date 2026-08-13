@@ -6,7 +6,16 @@ $busca_sql = mysqli_real_escape_string($conexao, $busca);
 $plataforma_id = (int) ($_GET['plataforma'] ?? 0);
 $categoria_id = (int) ($_GET['categoria'] ?? 0);
 $desenvolvedora_id = (int) ($_GET['desenvolvedora'] ?? 0);
+$grupo_plataforma = $_GET['grupo_plataforma'] ?? '';
 $ordem = $_GET['ordem'] ?? 'recentes';
+$titulo_catalogo = 'Catálogo';
+
+if ($categoria_id > 0) {
+    $categoria_titulo_resultado = mysqli_query($conexao, "SELECT nome FROM categorias WHERE id_categoria = $categoria_id AND status = 1 LIMIT 1");
+    if ($categoria_titulo = mysqli_fetch_assoc($categoria_titulo_resultado)) {
+        $titulo_catalogo = $categoria_titulo['nome'];
+    }
+}
 
 $ordens = [
     'recentes' => 'produtos.id_produto DESC',
@@ -19,6 +28,10 @@ $filtros = ["produtos.status = 1", "produtos.nome LIKE '%$busca_sql%'"];
 if ($plataforma_id > 0) $filtros[] = "produtos.id_plataforma = $plataforma_id";
 if ($categoria_id > 0) $filtros[] = "produtos.id_categoria = $categoria_id";
 if ($desenvolvedora_id > 0) $filtros[] = "produtos.id_desenvolvedora = $desenvolvedora_id";
+if ($grupo_plataforma === 'pc') $filtros[] = "EXISTS (SELECT 1 FROM plataforma p_menu WHERE p_menu.id_plataforma = produtos.id_plataforma AND p_menu.nome LIKE '%Steam%')";
+if ($grupo_plataforma === 'playstation') $filtros[] = "EXISTS (SELECT 1 FROM plataforma p_menu WHERE p_menu.id_plataforma = produtos.id_plataforma AND p_menu.nome LIKE '%PlayStation%')";
+if ($grupo_plataforma === 'xbox') $filtros[] = "EXISTS (SELECT 1 FROM plataforma p_menu WHERE p_menu.id_plataforma = produtos.id_plataforma AND p_menu.nome LIKE '%Xbox%')";
+if ($grupo_plataforma === 'switch') $filtros[] = "EXISTS (SELECT 1 FROM plataforma p_menu WHERE p_menu.id_plataforma = produtos.id_plataforma AND (p_menu.nome LIKE '%Nintendo%' OR p_menu.nome LIKE '%Switch%'))";
 $where = implode(' AND ', $filtros);
 
 $por_pagina = 12;
@@ -45,7 +58,7 @@ $base = ['busca' => $busca, 'plataforma' => $plataforma_id, 'categoria' => $cate
 <?php include 'includes/header.php'; ?>
 
 <section id="catalogo"><div class="container py-4">
-    <div class="w-100 text-center"><h2 class="mb-4 c-gradient fs-1">Catálogo</h2></div>
+    <div class="w-100 text-center"><h2 class="mb-4 c-gradient fs-1"><?php echo htmlspecialchars($titulo_catalogo, ENT_QUOTES, 'UTF-8'); ?></h2></div>
     <div class="d-flex justify-content-center mb-4">
         <form action="catalogo.php" method="GET" class="d-flex input-group w-50">
             <input type="hidden" name="plataforma" value="<?php echo $plataforma_id; ?>">
@@ -70,11 +83,11 @@ $base = ['busca' => $busca, 'plataforma' => $plataforma_id, 'categoria' => $cate
     <div class="row g-3">
         <?php if (mysqli_num_rows($produtos) === 0) { ?><div class="col-12"><div class="no-results"><h3>Nenhum produto encontrado</h3><p>Tente alterar os filtros.</p></div></div><?php } ?>
         <?php while ($produto = mysqli_fetch_assoc($produtos)) { $promo = (int) $produto['promocao'] === 1 && (float) $produto['desconto'] > 0 && (float) $produto['preco_promocao'] > 0 && (float) $produto['preco_promocao'] < (float) $produto['preco_venda']; ?>
-        <div class="col-md-3"><div class="card h-100"><a href="produtos.php?id=<?php echo (int) $produto['id_produto']; ?>" class="text-decoration-none text-white"><div class="position-relative"><img src="img/jogos/<?php echo htmlspecialchars($produto['imagem']); ?>" class="card-img-top" alt="<?php echo htmlspecialchars($produto['nome']); ?>"><?php if ($promo) { ?><span class="badge bg-success position-absolute top-0 start-0 m-2">-<?php echo (int) $produto['desconto']; ?>%</span><?php } ?></div><div class="card-body d-flex flex-column"><h6 class="card-title"><?php echo htmlspecialchars($produto['nome']); ?></h6><p class="card-text"><?php echo htmlspecialchars($produto['nome_plataforma']); ?></p><div class="mt-auto"><?php if ($promo) { ?><span class="text-decoration-line-through opacity-75 me-2">R$ <?php echo number_format($produto['preco_venda'], 2, ',', '.'); ?></span><?php } ?><span class="fw-bold">R$ <?php echo number_format($promo ? $produto['preco_promocao'] : $produto['preco_venda'], 2, ',', '.'); ?></span></div></div></a></div></div>
+        <div class="col-md-3"><div class="card h-100"><a href="produtos.php?id=<?php echo (int) $produto['id_produto']; ?>" class="catalogo-card-link text-decoration-none text-white"><div class="position position-relative"><img src="img/jogos/<?php echo htmlspecialchars($produto['imagem']); ?>" class="card-img-top" alt="<?php echo htmlspecialchars($produto['nome']); ?>"><?php if ($promo) { ?><span class="badge bg-success position-absolute top-0 start-0 m-2">-<?php echo (int) $produto['desconto']; ?>%</span><?php } ?></div><div class="card-body d-flex flex-column"><h6 class="card-title"><?php echo htmlspecialchars($produto['nome']); ?></h6><p class="card-text"><?php echo htmlspecialchars($produto['nome_plataforma']); ?></p><div class="mt-auto"><?php if ($promo) { ?><span class="text-decoration-line-through opacity-75 me-2">R$ <?php echo number_format($produto['preco_venda'], 2, ',', '.'); ?></span><?php } ?><span class="fw-bold">R$ <?php echo number_format($promo ? $produto['preco_promocao'] : $produto['preco_venda'], 2, ',', '.'); ?></span></div></div></a></div></div>
         <?php } ?>
     </div>
 
-    <?php if ($total_paginas > 1) { ?><nav class="mt-4"><ul class="pagination justify-content-center"><?php for ($i = 1; $i <= $total_paginas; $i++) { ?><li class="page-item <?php echo $i === $pagina ? 'active' : ''; ?>"><a class="page-link" href="<?php echo linkFiltro(array_merge($base, ['pagina' => $i])); ?>"><?php echo $i; ?></a></li><?php } ?></ul></nav><?php } ?>
+    <?php if ($total_paginas > 1) { ?><nav class="mt-4" aria-label="Paginação do catálogo"><ul class="pagination justify-content-center"><?php for ($i = 1; $i <= $total_paginas; $i++) { ?><li class="page-item <?php echo $i === $pagina ? 'active' : ''; ?>"><a class="page-link" href="<?php echo linkFiltro(array_merge($base, ['pagina' => $i])); ?>"<?php echo $i === $pagina ? ' aria-current="page"' : ''; ?>><?php echo $i; ?></a></li><?php } ?></ul></nav><?php } ?>
 </div></section>
 <?php include 'includes/rodape.php'; ?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>

@@ -29,7 +29,11 @@ if (isset($_POST['cadastrar']) && $_POST['cadastrar'] == 'cadastrar_produto') {
     $preco_promocao = mysqli_real_escape_string($conexao, $_POST['preco_promocao']);
     $data_criacao = mysqli_real_escape_string($conexao, $_POST['data_criacao']);
     $codigo = trim($_POST['codigo']);
-    $data_fim_promocao = mysqli_real_escape_string($conexao, $_POST['data_fim_promocao']);
+    $data_fim_promocao = trim($_POST['data_fim_promocao'] ?? '');
+    if ($data_fim_promocao === '' || $data_fim_promocao === '0000-00-00') {
+        $data_fim_promocao = '1900-01-01';
+    }
+    $data_fim_promocao = mysqli_real_escape_string($conexao, $data_fim_promocao);
     $classificacao = mysqli_escape_string($conexao, $_POST['classificacao']);
 
     $gpu_m = $_POST['gpu_m'];
@@ -177,7 +181,11 @@ if (isset($_POST['editar']) && $_POST['editar'] == 'editar_produto') {
     $preco_promocao = mysqli_real_escape_string($conexao, $_POST['preco_promocao']);
     $data_criacao = mysqli_real_escape_string($conexao, $_POST['data_criacao']);
     $codigo = trim($_POST['codigo']);
-    $data_fim_promocao = mysqli_real_escape_string($conexao, $_POST['data_fim_promocao']);
+    $data_fim_promocao = trim($_POST['data_fim_promocao'] ?? '');
+    if ($data_fim_promocao === '' || $data_fim_promocao === '0000-00-00') {
+        $data_fim_promocao = '1900-01-01';
+    }
+    $data_fim_promocao = mysqli_real_escape_string($conexao, $data_fim_promocao);
     $classificacao = mysqli_escape_string($conexao, $_POST['classificacao']);
 
     $gpu_m = $_POST['gpu_m'];

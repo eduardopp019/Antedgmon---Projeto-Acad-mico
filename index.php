@@ -178,7 +178,7 @@ $produto = mysqli_fetch_assoc($result);
                     }
                     ?>
 
-                    <a href="categoria.php?categoria=<?php echo $categoria['id_categoria']; ?>" class="categoria-item">
+                    <a href="catalogo.php?categoria=<?php echo $categoria['id_categoria']; ?>" class="categoria-item">
                         <i class="fa-solid <?php echo $icone; ?>"></i>
                         <span><?php echo $categoria['nome']; ?></span>
                     </a>

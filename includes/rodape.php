@@ -55,6 +55,15 @@
         </div>
 
         <hr class="opacity-25 my-4">
+        <div class="aviso-educacional" role="note" aria-label="Informacao sobre o projeto">
+            <div class="aviso-educacional__texto">
+                <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+                <p><strong>Projeto educacional</strong><span>Desenvolvido para fins de aprendizagem.</span></p>
+            </div>
+            <img class="aviso-educacional__logo" src="images/logo-senac.png" alt="Senac">
+        </div>
+
+        <hr class="opacity-25 my-4">
         <div class="row align-items-center gy-3" id="copy">
             <div class="col-md-6">
                 <div class="logo-rodape mb-0">

@@ -1,0 +1,11 @@
+/* Estilo compartilhado do menu lateral em todas as páginas públicas. */
+.offcanvas { z-index: 1060; font-size: 1rem; }
+.offcanvas-backdrop { z-index: 1055; }
+.offcanvas .offcanvas-title { font-size: 1.1rem; }
+.offcanvas .nav-link { font-size: 1rem !important; line-height: 1.35; }
+.menu-filtro { margin: 10px 0; }
+.menu-filtro summary { display: flex; align-items: center; justify-content: space-between; cursor: pointer; color: #94a0ae; font-size: .86rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+.menu-filtro summary::-webkit-details-marker { display: none; }
+.menu-filtro summary i { transition: transform .2s ease; }
+.menu-filtro[open] summary i { transform: rotate(180deg); }
+.menu-subitem { padding-left: 12px !important; font-size: .92rem !important; }

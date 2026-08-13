@@ -1,0 +1,69 @@
+/* Aviso institucional compartilhado entre todas as paginas. */
+.aviso-educacional {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid rgba(255, 255, 255, .14);
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, .06);
+}
+
+.aviso-educacional__texto {
+    display: flex;
+    align-items: center;
+    gap: .9rem;
+    min-width: 0;
+}
+
+.aviso-educacional__texto i {
+    flex: 0 0 auto;
+    color: #ffb43a;
+    font-size: 1.5rem;
+}
+
+.aviso-educacional__texto p {
+    display: flex;
+    flex-direction: column;
+    gap: .15rem;
+    margin: 0;
+    line-height: 1.35;
+}
+
+.aviso-educacional__texto strong {
+    color: #fff;
+    font-size: 1rem;
+}
+
+.aviso-educacional__texto span {
+    color: rgba(255, 255, 255, .72);
+    font-size: .875rem;
+}
+
+.aviso-educacional__logo {
+    display: block;
+    flex: 0 0 auto;
+    width: clamp(92px, 11vw, 130px);
+    height: auto;
+    object-fit: contain;
+}
+
+@media (max-width: 575.98px) {
+    .aviso-educacional {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.15rem;
+        padding: 1.25rem 1rem;
+        text-align: center;
+    }
+
+    .aviso-educacional__texto {
+        flex-direction: column;
+        gap: .55rem;
+    }
+
+    .aviso-educacional__logo {
+        width: 108px;
+    }
+}

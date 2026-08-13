@@ -1,0 +1,10 @@
+# Copias locais e arquivos temporarios
+backups/
+*.log
+*.tmp
+
+# Configuracoes do sistema e do editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

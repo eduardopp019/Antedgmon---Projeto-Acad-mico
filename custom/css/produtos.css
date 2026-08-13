@@ -667,16 +667,17 @@ h6 {
 }
 
 .btn-comprar {
-    background: linear-gradient(135deg, #ff9800, #ffc75d);
-    border-color: rgba(255, 224, 169, .55);
-    color: #21170a;
-    box-shadow: 0 7px 16px rgba(0, 0, 0, .22);
+    background: linear-gradient(135deg, #0e9f6e, #08785c);
+    border-color: rgba(170, 255, 217, .52);
+    color: #ffffff;
+    box-shadow: 0 7px 16px rgba(4, 88, 65, .34);
 }
 
 .btn-desejo {
-    border-color: rgba(255, 190, 72, .72);
-    background: rgba(30, 30, 30, .86);
+    border-color: rgba(237, 193, 255, .48);
+    background: linear-gradient(135deg, #5d2d82, #8d4bb6);
     color: #fff;
+    box-shadow: 0 7px 16px rgba(66, 23, 92, .28);
 }
 
 .btn-comprar:hover,
@@ -687,7 +688,7 @@ h6 {
 }
 
 .btn-desejo i {
-    color: #ffab19;
+    color: #ffd1e7;
 }
 
 .tags a {
@@ -964,6 +965,164 @@ li strong {
     grid-column: 1 / -1;
 }
 
+/* Produtos relacionados */
+.produtos-relacionados {
+    width: min(calc(100% - 40px), 1120px);
+    margin: 0 auto 52px;
+    color: #fff;
+}
+
+.relacionados-cabecalho {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 18px;
+}
+
+.relacionados-cabecalho span {
+    color: #ffc14d;
+    font-size: .78rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.relacionados-cabecalho h2 {
+    margin: 4px 0 6px;
+    color: #fff;
+    font-size: clamp(1.45rem, 3vw, 2rem);
+    text-transform: uppercase;
+}
+
+.relacionados-cabecalho p {
+    margin: 0;
+    color: rgba(255, 255, 255, .72);
+}
+
+.relacionados-controles {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.relacionados-seta {
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(255, 187, 50, .72);
+    border-radius: 50%;
+    background: rgba(24, 24, 24, .84);
+    color: #ffc14d;
+    cursor: pointer;
+    transition: transform .2s ease, background .2s ease, color .2s ease;
+}
+
+.relacionados-seta:hover {
+    transform: translateY(-2px);
+    background: #ffab19;
+    color: #21170a;
+}
+
+.relacionados-janela {
+    overflow: hidden;
+    padding: 4px;
+}
+
+.relacionados-lista {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    padding-bottom: 6px;
+}
+
+.relacionados-lista::-webkit-scrollbar {
+    display: none;
+}
+
+.card-relacionado {
+    flex: 0 0 calc((100% - 48px) / 4);
+    min-width: 210px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 177, 37, .7);
+    border-radius: 13px;
+    background: linear-gradient(145deg, #ffae25, #f18b0a);
+    color: #fff;
+    text-decoration: none;
+    scroll-snap-align: start;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.card-relacionado:hover {
+    transform: translateY(-5px);
+    color: #fff;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, .32);
+}
+
+.card-relacionado-imagem {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: #151515;
+}
+
+.card-relacionado-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-relacionado-imagem span {
+    position: absolute;
+    top: 9px;
+    left: 9px;
+    padding: 4px 7px;
+    border-radius: 6px;
+    background: #07966b;
+    color: #fff;
+    font-size: .76rem;
+    font-weight: 800;
+}
+
+.card-relacionado-info {
+    display: flex;
+    min-height: 130px;
+    flex-direction: column;
+    padding: 13px;
+}
+
+.card-relacionado-info h3 {
+    margin: 0 0 9px;
+    color: #fff;
+    font-size: 1rem;
+    line-height: 1.25;
+    text-transform: none;
+}
+
+.card-relacionado-info small {
+    width: fit-content;
+    padding: 3px 7px;
+    border: 1px solid rgba(255, 255, 255, .76);
+    border-radius: 999px;
+    font-size: .72rem;
+}
+
+.card-relacionado-preco {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: auto;
+}
+
+.card-relacionado-preco del {
+    font-size: .77rem;
+    opacity: .78;
+}
+
+.card-relacionado-preco strong {
+    font-size: 1rem;
+}
+
 @media (max-width: 992px) {
     #TOPO .search-form,
     #TOPO.scrolled .search-form {
@@ -1178,5 +1337,20 @@ li strong {
 
     #TOPO #namelogo {
         font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .produtos-relacionados {
+        width: min(calc(100% - 28px), 1120px);
+    }
+
+    .relacionados-cabecalho {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .card-relacionado {
+        flex-basis: min(78vw, 270px);
     }
 }

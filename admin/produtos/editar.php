@@ -70,11 +70,19 @@ include_once "../Usuario_Comum.php";
 
                 function gerarOptions($opcoes, $valorSelecionado)
                 {
+                    $valorSelecionado = trim((string) $valorSelecionado);
+
+                    // Mantém visível qualquer requisito já salvo, mesmo que ele
+                    // ainda não faça parte da lista fixa de opções do formulário.
+                    if ($valorSelecionado !== '' && !in_array($valorSelecionado, $opcoes, true)) {
+                        $valorSeguro = htmlspecialchars($valorSelecionado, ENT_QUOTES, 'UTF-8');
+                        echo "<option value=\"$valorSeguro\" selected>$valorSeguro</option>";
+                    }
+
                     foreach ($opcoes as $opcao) {
-
-                        $selected = ($opcao == $valorSelecionado) ? 'selected' : '';
-
-                        echo "<option value=\"$opcao\" $selected>$opcao</option>";
+                        $selected = ($opcao === $valorSelecionado) ? 'selected' : '';
+                        $opcaoSegura = htmlspecialchars($opcao, ENT_QUOTES, 'UTF-8');
+                        echo "<option value=\"$opcaoSegura\" $selected>$opcaoSegura</option>";
                     }
                 }
                 if (isset($_GET['id_produto']) &&  $_GET['id_produto'] != '') {
@@ -86,8 +94,21 @@ include_once "../Usuario_Comum.php";
                     $produto = mysqli_fetch_assoc($query);
 
 
-                    $min = json_decode($produto['requisitos_minimos'], true);
-                    $rec = json_decode($produto['requisitos_recomendados'], true);
+                    $requisitosVazios = [
+                        'so' => '',
+                        'armazenamento' => '',
+                        'processador' => '',
+                        'memoria' => '',
+                        'gpu' => '',
+                        'som' => '',
+                        'directx' => ''
+                    ];
+
+                    $minDecodificado = json_decode($produto['requisitos_minimos'] ?? '', true);
+                    $recDecodificado = json_decode($produto['requisitos_recomendados'] ?? '', true);
+
+                    $min = array_merge($requisitosVazios, is_array($minDecodificado) ? $minDecodificado : []);
+                    $rec = array_merge($requisitosVazios, is_array($recDecodificado) ? $recDecodificado : []);
 
 
 

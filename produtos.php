@@ -23,8 +23,41 @@ $tem_promocao = $produto
     && (float)$produto['preco_promocao'] > 0
     && (float)$produto['preco_promocao'] < (float)$produto['preco_venda'];
 
+// Só mostra o contador se a promoção tiver data válida e ainda não tiver acabado.
+$data_fim_promocao = trim((string)($produto['data_fim_promocao'] ?? ''));
+$fim_promocao_timestamp = false;
+
+if ($data_fim_promocao !== '' && $data_fim_promocao !== '0000-00-00') {
+    $fim_promocao = DateTime::createFromFormat('!Y-m-d', $data_fim_promocao);
+
+    if ($fim_promocao && $fim_promocao->format('Y-m-d') === $data_fim_promocao) {
+        $fim_promocao->setTime(23, 59, 59);
+        $fim_promocao_timestamp = $fim_promocao->getTimestamp();
+    }
+}
+
+$exibir_contador_promocao = $tem_promocao
+    && $fim_promocao_timestamp !== false
+    && $fim_promocao_timestamp > time();
+
 $min = json_decode($produto['requisitos_minimos'], true);
 $rec = json_decode($produto['requisitos_recomendados'], true);
+
+// Produtos parecidos: a categoria tem prioridade e a plataforma complementa a lista.
+$categoria_atual = (int)$produto['id_categoria'];
+$plataforma_atual = (int)$produto['id_plataforma'];
+$sql_relacionados = "SELECT produtos.*, plataforma.nome AS plataforma_nome
+    FROM produtos
+    INNER JOIN plataforma ON produtos.id_plataforma = plataforma.id_plataforma
+    WHERE produtos.status = 1
+      AND produtos.id_produto != $id
+      AND (produtos.id_categoria = $categoria_atual OR produtos.id_plataforma = $plataforma_atual)
+    ORDER BY
+      CASE WHEN produtos.id_categoria = $categoria_atual THEN 0 ELSE 1 END,
+      CASE WHEN produtos.id_plataforma = $plataforma_atual THEN 0 ELSE 1 END,
+      produtos.id_produto DESC
+    LIMIT 12";
+$produtos_relacionados = mysqli_query($conexao, $sql_relacionados);
 
 
 if (!$produto) {
@@ -145,10 +178,12 @@ if (!$produto) {
                                 </span>
                             </div>
 
-                            <p class="desc-timer">
-                                Oferta acaba em:
-                                <span id="timer"></span>
-                            </p>
+                            <?php if ($exibir_contador_promocao) { ?>
+                                <p class="desc-timer" id="contador-oferta">
+                                    Oferta acaba em:
+                                    <span id="timer"></span>
+                                </p>
+                            <?php } ?>
 
                             <p class="desc-note">
                                 Promoção sujeita à disponibilidade de estoque.
@@ -294,7 +329,7 @@ if (!$produto) {
 
                 <h3>Categoria</h3>
                 <div class="tags">
-                    <a href="categoria.php?categoria=<?php echo (int) $produto['id_categoria']; ?>">
+                    <a href="catalogo.php?categoria=<?php echo (int) $produto['id_categoria']; ?>">
                         <div><?php echo htmlspecialchars($produto['categoria_nome'], ENT_QUOTES, 'UTF-8'); ?></div>
                     </a>
                 </div>
@@ -340,6 +375,50 @@ if (!$produto) {
 
     </section>
     <!-- FIM GAMES -->
+
+    <?php if ($produtos_relacionados && mysqli_num_rows($produtos_relacionados) > 0) { ?>
+        <section class="produtos-relacionados" aria-labelledby="titulo-relacionados">
+            <div class="relacionados-cabecalho">
+                <div>
+                    <span>Descubra mais</span>
+                    <h2 id="titulo-relacionados">Produtos relacionados</h2>
+                    <p>Mais jogos da categoria <?php echo htmlspecialchars($produto['categoria_nome'], ENT_QUOTES, 'UTF-8'); ?> e da plataforma <?php echo htmlspecialchars($produto['plataforma_nome'], ENT_QUOTES, 'UTF-8'); ?>.</p>
+                </div>
+                <div class="relacionados-controles">
+                    <button type="button" class="relacionados-seta" id="relacionados-anterior" aria-label="Ver produtos anteriores"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button type="button" class="relacionados-seta" id="relacionados-proximo" aria-label="Ver próximos produtos"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+
+            <div class="relacionados-janela">
+                <div class="relacionados-lista" id="lista-relacionados">
+                    <?php while ($relacionado = mysqli_fetch_assoc($produtos_relacionados)) {
+                        $relacionado_em_promocao = (int)$relacionado['promocao'] === 1
+                            && (float)$relacionado['desconto'] > 0
+                            && (float)$relacionado['preco_promocao'] > 0
+                            && (float)$relacionado['preco_promocao'] < (float)$relacionado['preco_venda'];
+                        $preco_relacionado = $relacionado_em_promocao ? $relacionado['preco_promocao'] : $relacionado['preco_venda'];
+                    ?>
+                        <a class="card-relacionado" href="produtos.php?id=<?php echo (int)$relacionado['id_produto']; ?>">
+                            <div class="card-relacionado-imagem">
+                                <img src="img/jogos/<?php echo htmlspecialchars($relacionado['imagem'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($relacionado['nome'], ENT_QUOTES, 'UTF-8'); ?>">
+                                <?php if ($relacionado_em_promocao) { ?><span>-<?php echo (int)$relacionado['desconto']; ?>%</span><?php } ?>
+                            </div>
+                            <div class="card-relacionado-info">
+                                <h3><?php echo htmlspecialchars($relacionado['nome'], ENT_QUOTES, 'UTF-8'); ?></h3>
+                                <small><?php echo htmlspecialchars($relacionado['plataforma_nome'], ENT_QUOTES, 'UTF-8'); ?></small>
+                                <div class="card-relacionado-preco">
+                                    <?php if ($relacionado_em_promocao) { ?><del>R$ <?php echo number_format($relacionado['preco_venda'], 2, ',', '.'); ?></del><?php } ?>
+                                    <strong>R$ <?php echo number_format($preco_relacionado, 2, ',', '.'); ?></strong>
+                                </div>
+                            </div>
+                        </a>
+                    <?php } ?>
+                </div>
+            </div>
+        </section>
+    <?php } ?>
+
     <?php include 'includes/rodape.php'; ?>
 
 
@@ -389,19 +468,26 @@ if (!$produto) {
 
 
     <script>
-        <?php if ($tem_promocao && !empty($produto['data_fim_promocao'])) { ?>
+        <?php if ($exibir_contador_promocao) { ?>
 
-            const dataFim = "<?= $produto['data_fim_promocao']; ?>";
+            const dataFim = <?= json_encode($data_fim_promocao . 'T23:59:59'); ?>;
+            const contadorOferta = document.getElementById("contador-oferta");
+            const timer = document.getElementById("timer");
+            const fim = Date.parse(dataFim);
+            let intervaloContador;
 
             function atualizarContador() {
+                if (!Number.isFinite(fim) || !contadorOferta || !timer) {
+                    contadorOferta?.remove();
+                    clearInterval(intervaloContador);
+                    return;
+                }
 
-                const agora = new Date().getTime();
-                const fim = new Date(dataFim).getTime();
-
-                const diff = fim - agora;
+                const diff = fim - Date.now();
 
                 if (diff <= 0) {
-                    document.getElementById("timer").innerHTML = "Encerrada";
+                    contadorOferta.remove();
+                    clearInterval(intervaloContador);
                     return;
                 }
 
@@ -410,17 +496,36 @@ if (!$produto) {
                 const minutos = Math.floor((diff / (1000 * 60)) % 60);
                 const segundos = Math.floor((diff / 1000) % 60);
 
-                document.getElementById("timer").innerHTML =
+                timer.textContent =
                     dias + "d " +
                     String(horas).padStart(2, '0') + ":" +
                     String(minutos).padStart(2, '0') + ":" +
                     String(segundos).padStart(2, '0');
             }
 
-            setInterval(atualizarContador, 1000);
             atualizarContador();
+            intervaloContador = setInterval(atualizarContador, 1000);
 
         <?php } ?>
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const lista = document.getElementById('lista-relacionados');
+            const anterior = document.getElementById('relacionados-anterior');
+            const proximo = document.getElementById('relacionados-proximo');
+
+            if (!lista || !anterior || !proximo) return;
+
+            const mover = (direcao) => {
+                const card = lista.querySelector('.card-relacionado');
+                const largura = card ? card.getBoundingClientRect().width + 16 : 260;
+                lista.scrollBy({ left: direcao * largura * 2, behavior: 'smooth' });
+            };
+
+            anterior.addEventListener('click', () => mover(-1));
+            proximo.addEventListener('click', () => mover(1));
+        });
     </script>
 
 
